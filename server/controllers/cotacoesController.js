@@ -1,29 +1,27 @@
+const Request = require('request');
 module.exports = {
 
     //pega as cotações da api externa
-    getCotacoes(request, response) {
-
-        var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-        const Http = new XMLHttpRequest();
-        const url = "https://api.hgbrasil.com/finance"
-        const key = 'c596e1b5'
-        Http.open('GET', url);
-        Http.setRequestHeader('Authorization', key);
-        Http.setRequestHeader('Content-type', 'application/json');
-        Http.send();
+    getCotacoes(request, responseApi) {
         var resp;
-        Http.onreadystatechange = () => {
-            console.log(Http.responseText);
-            if (Http.readyState == 4 && Http.status == 200) {
-                resp = Http.responseText;
-            } else {
+        const key = 'c596e1b5';
+        const url = "https://api.hgbrasil.com/finance"
+        Request.get({
+            "headers": { "Authorization": key, "Content-type": 'application/json' },
+            "url": url,
+        }, (error, response, body) => {
+            if (error) {
                 resp = {
-                    code: 300,
-                    body: 'Um erro ocorreu com a requisição'
+                    statusCode: 300,
+                    body: 'error na api'
                 }
+
+                return responseApi.json(resp);
             }
-        }
-        return response.json(resp);
+            resp = body;
+            return responseApi.json(resp);
+        })
+
     }
 
 }
