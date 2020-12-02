@@ -9,6 +9,7 @@ module.exports = {
         Request.get({
             "headers": { "Authorization": key, "Content-type": 'application/json' },
             "url": url,
+            //verifica se a api deu algum erro e retorna a resposta adequada
         }, (error, response, body) => {
             if (error) {
                 resp = {
