@@ -1,15 +1,12 @@
 const Request = require('request');
 module.exports = {
-
-    //pega as cotações da api externa
-    getCotacoes(request, responseApi) {
+    getNoticias(request, responseApi) {
         var resp;
-        const key = 'c596e1b5';
-        const url = "https://api.hgbrasil.com/finance"
+        
+        const url = "http://newsapi.org/v2/top-headlines?country=br&category=business&apiKey=bc5d48946e88478f8b5525cde7d66c73"
         Request.get({
-            "headers": { "Authorization": key, "Content-type": 'application/json' },
+            "headers": { "Content-type": 'application/json' },
             "url": url,
-            //verifica se a api deu algum erro e retorna a resposta adequada
         }, (error, response, body) => {
             if (error) {
                 resp = {
