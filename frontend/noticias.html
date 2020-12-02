@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="./css/style.css">
-  <title>Cotações</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <title>Notícias</title>
 </head>
 <body>
-  <header>
-    <ul>
-      <li><a href="index.html">Cotações</a></li>
-      <li><a href="acao.html">Ações</a></li>
-      <li><a class="ativo" href="#">Notícias</a></li>
-    </ul>
-  </header>
+    <header>
+        <ul>
+            <li><a href="index.html">Cotações</a></li>
+            <li><a href="acao.html">Ações</a></li>
+            <li><a class="ativo" href="#">Notícias</a></li>
+        </ul>
+    </header>
 </body>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script>
+
+    $(document).ready(function() {
+          $.ajax({
+            url:"http://localhost:5000/noticias",
+            method: "GET",
+            success: function(msg){
+                console.log(msg);
+            }
+        });
+
+    })
+</script>
 </html>
