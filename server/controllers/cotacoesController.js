@@ -5,9 +5,9 @@ module.exports = {
     getCotacoes(request, responseApi) {
         var resp;
         const key = 'c596e1b5';
-        const url = "https://api.hgbrasil.com/finance"
+        const url = `https://api.hgbrasil.com/finance?key=${key}`
         Request.get({
-            "headers": { "Authorization": key, "Content-type": 'application/json' },
+            "headers": { "Content-type": 'application/json' },
             "url": url,
             //verifica se a api deu algum erro e retorna a resposta adequada
         }, (error, response, body) => {

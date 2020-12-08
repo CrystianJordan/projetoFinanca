@@ -1,4 +1,5 @@
 const Request = require('request');
+const FormData = require('form-data');
 module.exports = {
 
     //pega as cotações da api externa
