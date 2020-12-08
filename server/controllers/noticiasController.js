@@ -2,7 +2,8 @@ const Request = require('request');
 module.exports = {
     getNoticias(request, responseApi) {
         var resp;
-        const url = "http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=bc5d48946e88478f8b5525cde7d66c73"
+        
+        const url = "http://newsapi.org/v2/top-headlines?country=br&category=business&apiKey=bc5d48946e88478f8b5525cde7d66c73"
         Request.get({
             "headers": { "Content-type": 'application/json' },
             "url": url,
