@@ -67,3 +67,28 @@ header li a:hover:not(.ativo) {
     line-height: 21px;
     font-size: 16px;
 }
+
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    width: calc(25% - 53px);
+    height: 300px;
+    float: left;
+    margin: 10px;
+    padding: 2px 16px;
+    cursor: pointer;
+    background-color: rgb(228, 228, 228);
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.titulo{
+    font-size: 20px;
+    font-weight:bold;
+
+}
+
+.resumo{
+    padding-top: 10px;
+}
